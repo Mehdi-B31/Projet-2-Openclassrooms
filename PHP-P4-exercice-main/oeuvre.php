@@ -7,10 +7,10 @@ if(empty($_GET['id'])) {
     exit;
 }
 
-$bdd = connexion();
-$requete = $bdd->prepare('SELECT * FROM oeuvres WHERE id = :id');
+//$bdd = connexion();
+$requete = connexion()->prepare('SELECT * FROM oeuvres WHERE id = :id');
 $requete->execute(['id' => $_GET['id']]);
-$oeuvre = $requete->fetch();
+$oeuvre = $requete->fetch(PDO::FETCH_ASSOC);
 
 if($oeuvre === false) {
     header('Location: index.php');

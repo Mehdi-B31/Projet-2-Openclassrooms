@@ -2,8 +2,8 @@
 require('header.php');
 require('bdd.php');
 
-$bdd = connexion();
-$oeuvres = $bdd->query('SELECT * FROM oeuvres');
+//$bdd = connexion();
+$oeuvres = connexion()->query('SELECT * FROM oeuvres');
 ?>
 
 <div id="liste-oeuvres">
